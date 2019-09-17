@@ -12,7 +12,7 @@ def test_it_has_a_name():
     assert unicorn.name == "Robert"
 
 def test_it_is_white_by_default():
-    unicorn = Unicorn("Robert", "white")
+    unicorn = Unicorn("Robert")
     assert unicorn.color == "white"
     assert unicorn.is_white() == True
     assert unicorn.is_white()
@@ -22,7 +22,9 @@ def test_it_is_white_by_default():
   #   assert_equal "white", unicorn.color
   #   assert_equal true, unicorn.white?
   #   assert unicorn.white?
-#
+
+# def test_it_does_not_have_to_be_white()
+#     unicorn = Unicorn("Robert")
 #   def test_it_does_not_have_to_be_white
 #     skip
 #     unicorn = Unicorn.new("Barbara", "purple")

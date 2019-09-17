@@ -1,5 +1,5 @@
 class Unicorn:
-    def __init__(self, name, color="no_color"):
+    def __init__(self, name, color="white"):
         self.name = name
         self.color = color
 
