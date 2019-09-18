@@ -1,59 +1,28 @@
 import pytest
 from lib.dragon import *
 
-def test_it_has_a_name():
+def test_it_has_attributes():
     dragon = Dragon("Ramoth", "gold", "Lessa")
     assert dragon.name == "Ramoth"
+    assert dragon.rider == "Lessa"
+    assert dragon.color == "gold"
 
-#   def test_it_has_a_name
-#     dragon = Dragon.new("Ramoth", :gold, "Lessa")
-#     assert_equal "Ramoth", dragon.name
-#   end
-#
-#   def test_it_has_a_rider
-#     skip
-#     dragon = Dragon.new("Ramoth", :gold, "Lessa")
-#     assert_equal "Lessa", dragon.rider
-#   end
-#
-#   def test_it_has_a_color
-#     skip
-#     dragon = Dragon.new("Ramoth", :gold, "Lessa")
-#     assert_equal :gold, dragon.color
-#   end
-#
-#   def test_a_different_dragon
-#     skip
-#     dragon = Dragon.new("Mnementh", :bronze, "F'lar")
-#     assert_equal "Mnementh", dragon.name
-#   end
-#
-#   def test_a_different_dragons_rider
-#     skip
-#     dragon = Dragon.new("Mnementh", :bronze, "F'lar")
-#     assert_equal "F'lar", dragon.rider
-#   end
-#
-#   def test_a_different_dragons_color
-#     skip
-#     dragon = Dragon.new("Mnementh", :bronze, "F'lar")
-#     assert_equal :bronze, dragon.color
-#   end
-#
-#   def test_dragons_are_born_hungry
-#     skip
-#     dragon = Dragon.new("Canth", :brown, "F'nor")
-#     assert dragon.hungry?
-#   end
-#
-#   def test_dragons_eat_a_lot
-#     skip
-#     dragon = Dragon.new("Canth", :brown, "F'nor")
-#     assert dragon.hungry?
-#     dragon.eat
-#     assert dragon.hungry?
-#     dragon.eat
-#     assert dragon.hungry?
-#     dragon.eat
-#     refute dragon.hungry?
-#   end
+def test_a_different_dragon():
+    dragon = Dragon("Mnementh", "bronze", "F'lar")
+    assert dragon.name == "Mnementh"
+    assert dragon.rider == "F'lar"
+    assert dragon.color == "bronze"
+
+def test_dragons_are_born_hungry():
+    dragon = Dragon("Canth", "brown", "F'nor")
+    assert dragon.is_hungry()
+
+def test_dragons_eat_a_lot():
+    dragon = Dragon("Canth", "brown", "F'nor")
+    assert dragon.is_hungry()
+    dragon.eat()
+    assert dragon.is_hungry()
+    dragon.eat()
+    assert dragon.is_hungry()
+    dragon.eat()
+    assert not dragon.is_hungry()
