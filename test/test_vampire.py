@@ -22,9 +22,10 @@ def test_it_can_have_other_pets():
 
 def test_it_is_thirsty_by_default():
     vampire = Vampire("Count von Count")
-    assert vampire.is_thirsty
+    assert vampire.is_thirsty()
 
 def test_it_is_not_thirsty_after_drinking():
     vampire = Vampire("Elizabeth Bathory")
     vampire.drink()
     assert vampire.is_thirsty() == False
+    assert not vampire.is_thirsty()
