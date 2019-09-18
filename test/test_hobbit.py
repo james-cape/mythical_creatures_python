@@ -11,27 +11,19 @@ def test_it_is_named_something_else():
 
 def test_disposition_is_unadventurous():
     hobbit = Hobbit("Samwise")
-#   def test_disposition_is_unadventurous
-#     skip
-#     hobbit = Hobbit.new("Samwise")
-#     assert_equal "homebody", hobbit.disposition
-#   end
-#
-#   def test_can_have_a_different_disposition
-#     skip
-#     hobbit = Hobbit.new("Frodo", "adventurous")
-#     assert_equal "adventurous", hobbit.disposition
-#   end
-#
-#   def test_grows_older_when_celebrating_birthdays
-#     skip
-#     hobbit = Hobbit.new('Meriadoc')
-#     assert_equal 0, hobbit.age
-#     5.times do
-#       hobbit.celebrate_birthday
-#     end
-#     assert_equal 5, hobbit.age
-#   end
+    assert hobbit.disposition == "homebody"
+
+def test_can_have_a_different_disposition():
+    hobbit = Hobbit("Frodo", "adventurous")
+    assert hobbit.disposition == "adventurous"
+
+def test_grows_older_when_celebrating_birthdays():
+    hobbit = Hobbit("Meriadoc")
+    assert hobbit.age == 0
+    for _ in range(5):
+        hobbit.celebrate_birthday()
+    assert hobbit.age == 5
+
 #
 #   def test_is_considered_a_child_at_32
 #     skip
