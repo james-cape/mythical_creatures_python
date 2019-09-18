@@ -5,3 +5,6 @@ class Unicorn:
 
     def is_white(self):
         return self.color == "white"
+
+    def say(self, words):
+        return f"**;* {words} **;*"
