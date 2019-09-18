@@ -30,34 +30,33 @@ def test_is_considered_a_child_at_32():
         hobbit.celebrate_birthday()
     assert not hobbit.is_adult()
 
-#
-#   def test_comes_of_age_at_33
-#     skip
-#     hobbit = Hobbit.new('Otho')
-#     33.times do
-#       hobbit.celebrate_birthday
-#     end
-#     assert hobbit.adult?
-#
-#     # still adult, one year later
-#     hobbit.celebrate_birthday
-#     assert hobbit.adult?
-#   end
-#
-#   def test_is_old_at_age_of_101
-#     skip
-#     # create a hobbit
-#     # have hobbit age 101 years
-#     # check that hobbit.old? returns true
-#   end
-#
-#   def test_hobbit_has_the_ring_if_its_name_is_frodo
-#     skip
-#     # create a hobbit named Frodo
-#     # create a second hobbit named Sam
-#     # check that .has_ring? for Frodo returns true
-#     # check that .has_ring? for Sam returns false
-#   end
+    hobbit.celebrate_birthday()
+    assert hobbit.is_adult()
+
+def test_comes_of_age_at_33():
+    hobbit = Hobbit("Otho")
+    for _ in range(33):
+        hobbit.celebrate_birthday()
+    assert hobbit.is_adult()
+
+    hobbit.celebrate_birthday()
+    assert hobbit.is_adult()
+
+def test_is_old_at_age_of_101():
+    hobbit = Hobbit("Parko")
+    hobbit.age = 100
+    assert not hobbit.is_old()
+    hobbit.age = 101
+    assert hobbit.is_old()
+    hobbit.age = 101
+    assert hobbit.is_old()
+
+def test_hobbit_has_the_ring_if_its_name_is_frodo():
+    hobbit_1 = Hobbit("Frodo")
+    hobbit_2 = Hobbit("Sam")
+    assert hobbit_1.has_ring()
+    assert not hobbit_2.has_ring()
+
 #
 #   def test_hobbits_are_short
 #     skip
