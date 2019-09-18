@@ -24,15 +24,12 @@ def test_grows_older_when_celebrating_birthdays():
         hobbit.celebrate_birthday()
     assert hobbit.age == 5
 
-#
-#   def test_is_considered_a_child_at_32
-#     skip
-#     hobbit = Hobbit.new('Gerontius')
-#     32.times do
-#       hobbit.celebrate_birthday
-#     end
-#     refute hobbit.adult?
-#   end
+def test_is_considered_a_child_at_32():
+    hobbit = Hobbit("Gerontius")
+    for _ in range(32):
+        hobbit.celebrate_birthday()
+    assert not hobbit.is_adult()
+
 #
 #   def test_comes_of_age_at_33
 #     skip

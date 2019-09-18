@@ -6,3 +6,6 @@ class Hobbit:
 
     def celebrate_birthday(self):
         self.age += 1
+
+    def is_adult(self):
+        False if self.age <= 32 else True
