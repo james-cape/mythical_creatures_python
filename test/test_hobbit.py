@@ -57,9 +57,6 @@ def test_hobbit_has_the_ring_if_its_name_is_frodo():
     assert hobbit_1.has_ring()
     assert not hobbit_2.has_ring()
 
-#
-#   def test_hobbits_are_short
-#     skip
-#     # create a hobbit
-#     # check that .is_short? returns true
-#   end
+def test_hobbits_are_short():
+    hobbit = Hobbit("Russ")
+    assert hobbit.is_short()
