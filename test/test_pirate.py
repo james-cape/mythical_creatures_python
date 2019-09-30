@@ -20,31 +20,30 @@ def test_its_not_always_a_scallywag():
 def test_isnt_cursed_by_default():
     pirate = Pirate("Jack")
     assert pirate.is_cursed() == False
-    # assert not pirate.is_cursed
-#
-#   def test_isnt_cursed_by_default
-#     skip
-#     pirate = Pirate.new("Jack")
-#     refute pirate.cursed?
-#   end
-#
-#   def test_becomes_cursed_after_enough_heinous_acts
-#     skip
-#     pirate = Pirate.new("Jack")
-#     refute pirate.cursed?
-#     pirate.commit_heinous_act
-#     refute pirate.cursed?
-#     pirate.commit_heinous_act
-#     refute pirate.cursed?
-#     pirate.commit_heinous_act
-#     assert pirate.cursed?
-#   end
-#
-#   def test_a_pirate_has_booty
-#     skip
-#     # create a pirate
-#     # check that the pirate starts with 0 booty
-#   end
+
+def test_becomes_cursed_after_enough_heinous_acts():
+    pirate = Pirate("Jack")
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.is_cursed() == True
+
+
+def test_a_pirate_has_booty():
+    pirate = Pirate("Jack")
+    assert pirate.booty == 0
+
+def test_a_pirate_gets_100_booty_for_robbing_ships():
+    pirate = Pirate("Jack")
+    assert pirate.booty == 0
+    pirate.rob_ship()
+    assert pirate.booty == 100
+    pirate.rob_ship()
+    pirate.rob_ship()
+    assert pirate.booty == 300
 #
 #   def test_a_pirate_gets_100_booty_for_robbing_ships
 #     skip
