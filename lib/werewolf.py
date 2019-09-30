@@ -23,7 +23,12 @@ class Werewolf:
         return self.hungry
 
     def consume(self, consumed):
-        return None
+        if self.human_state == True:
+            return "No one was consumed"
+        else:
+            consumed.status = "Dead"
+            self.hungry = False
+            return None
 
 class Victim:
     def __init__(self):

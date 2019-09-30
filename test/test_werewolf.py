@@ -61,20 +61,23 @@ def test_consumes_a_victim():
 
     werewolf.consume(human)
 
+def test_cannot_consume_victim_if_in_human_form():
+    human = Victim()
+    werewolf = Werewolf("David","London")
 
+    assert werewolf.consume(human) == "No one was consumed"
 
-#
-#   def test_cannot_consume_victim_if_in_human_form
-#     skip
-#     # your code here
-#   end
-#
-#   def test_a_werewolf_who_has_consumed_a_victim_is_no_longer_hungry
-#     skip
-#     # your code here
-#   end
-#
-#   def test_a_werewolf_who_has_consumed_a_victim_makes_the_victim_dead
-#     skip
-#     # your code here
-#   end
+def test_a_werewolf_who_has_consumed_a_victim_is_no_longer_hungry():
+    human = Victim()
+    werewolf = Werewolf("David","London", human_state = False, hungry = True)
+
+    assert werewolf.is_hungry() == True
+    werewolf.consume(human)
+    assert werewolf.is_hungry() == False
+
+def test_a_werewolf_who_has_consumed_a_victim_makes_the_victim_dead():
+    human = Victim()
+    werewolf = Werewolf("David","London", human_state = False, hungry = True)
+
+    werewolf.consume(human)
+    assert human.status == "Dead"
