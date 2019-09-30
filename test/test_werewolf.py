@@ -1,20 +1,14 @@
 import pytest
 from lib.werewolf import *
 
-def test_has_name():
+def test_it_has_name():
     werewolf = Werewolf("David")
+    assert werewolf.name == "David"
 
+def test_it_has_a_location():
+    werewolf = Werewolf("David", "London")
+    assert werewolf.location == "London"
 
-#   def test_it_has_a_name
-#     werewolf = Werewolf.new("David")
-#     assert_equal "David", werewolf.name
-#   end
-#
-#   def test_it_has_a_location
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     assert_equal "London", werewolf.location
-#   end
 #
 #   def test_it_is_by_default_in_human_form
 #     skip
