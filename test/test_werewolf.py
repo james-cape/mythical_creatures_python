@@ -25,26 +25,22 @@ def test_when_starting_as_a_human_changing_turns_it_into_a_werewolf():
     werewolf.change()
     assert werewolf.is_wolf() == True
 
+def test_when_starting_as_a_human_changing_a_second_time_it_becomes_human_again():
+    werewolf = Werewolf("David", "London")
+    assert werewolf.is_human() == True
+    werewolf.change()
+    assert werewolf.is_human() == False
+    werewolf.change()
+    assert werewolf.is_human() == True
 
-#
-#   def test_when_starting_as_a_human_changing_a_second_time_it_becomes_human_again
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     assert werewolf.human?
-#     werewolf.change!
-#     werewolf.change!
-#     assert werewolf.human?
-#   end
-#
-#   def test_when_starting_as_a_werewolf_changing_a_second_time_it_becomes_werewolf_again
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     werewolf.change!
-#     assert werewolf.wolf?
-#     werewolf.change!
-#     werewolf.change!
-#     assert werewolf.wolf?
-#   end
+def test_when_starting_as_a_werewolf_changing_a_second_time_it_becomes_werewolf_again():
+    werewolf = Werewolf("David","London", human_state = False)
+    assert werewolf.is_wolf() == True
+    werewolf.change()
+    assert werewolf.is_wolf() == False
+    werewolf.change()
+    assert werewolf.is_wolf() == True
+
 #
 #   def test_is_not_hungry_by_default
 #     skip

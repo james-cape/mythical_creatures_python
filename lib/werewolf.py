@@ -11,6 +11,8 @@ class Werewolf:
     def change(self):
         if self.human_state == True:
             self.human_state = False
+        else:
+            self.human_state = True
 
     def is_wolf(self):
         return not self.human_state
