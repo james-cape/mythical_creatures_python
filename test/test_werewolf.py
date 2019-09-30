@@ -9,26 +9,23 @@ def test_it_has_a_location():
     werewolf = Werewolf("David", "London")
     assert werewolf.location == "London"
 
-#
-#   def test_it_is_by_default_in_human_form
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     assert werewolf.human?
-#   end
-#
-#   def test_when_starting_as_a_human_changing_means_it_is_no_longer_human
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     werewolf.change!
-#     refute werewolf.human?
-#   end
-#
-#   def test_when_starting_as_a_human_changing_turns_it_into_a_werewolf
-#     skip
-#     werewolf = Werewolf.new("David","London")
-#     werewolf.change!
-#     assert werewolf.wolf?
-#   end
+def test_it_is_by_default_in_human_form():
+    werewolf = Werewolf("David", "London")
+    assert werewolf.is_human() == True
+
+def test_when_starting_as_a_human_changing_means_it_is_no_longer_human():
+    werewolf = Werewolf("David", "London")
+    assert werewolf.is_human() == True
+    werewolf.change()
+    assert werewolf.is_human() == False
+
+def test_when_starting_as_a_human_changing_turns_it_into_a_werewolf():
+    werewolf = Werewolf("David", "London")
+    assert werewolf.is_human() == True
+    werewolf.change()
+    assert werewolf.is_wolf() == True
+
+
 #
 #   def test_when_starting_as_a_human_changing_a_second_time_it_becomes_human_again
 #     skip
