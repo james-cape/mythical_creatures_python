@@ -4,8 +4,14 @@ class Medusa:
         self.statues = statues
 
     def stare(self, victim):
-        victim.stoned_status = True
-        self.statues.append(victim)
+        if len(self.statues) == 3:
+            self.statues[0].stoned_status = False
+            self.statues.pop(0)
+            victim.stoned_status = True
+            self.statues.append(victim)
+        else:
+            victim.stoned_status = True
+            self.statues.append(victim)
 
 class Person:
     def __init__(self, name, stoned_status = False):

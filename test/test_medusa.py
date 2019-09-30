@@ -24,23 +24,38 @@ def test_when_staring_at_a_person_that_person_turns_to_stone():
     assert victim.is_stoned() == False
     medusa.stare(victim)
     assert victim.is_stoned() == True
-#
-#   def test_when_staring_at_a_person_that_person_turns_to_stone
-#     skip
-#     medusa = Medusa.new("Cassiopeia")
-#     victim = Person.new("Perseus")
-#
-#     refute victim.stoned?
-#     medusa.stare(victim)
-#     assert victim.stoned?
-#   end
-#
-#   def test_can_only_have_three_victims
-#     skip
-#     # your code here
-#   end
-#
-#   def test_if_a_fourth_victim_is_stoned_first_is_unstoned
-#     skip
-#     # your code here
-#   end
+
+def test_can_only_have_three_victims():
+    medusa = Medusa("Cassiopeia")
+    medusa.statues = []
+    victim1 = Person("Perseus")
+    victim2 = Person("Bories")
+    victim3 = Person("Canta")
+    victim4 = Person("Wonta")
+    medusa.stare(victim1)
+    medusa.stare(victim2)
+    medusa.stare(victim3)
+    medusa.stare(victim4)
+
+    assert len(medusa.statues) == 3
+
+def test_if_a_fourth_victim_is_stoned_first_is_unstoned():
+    medusa = Medusa("Cassiopeia")
+    medusa.statues = []
+    victim1 = Person("Perseus")
+    victim2 = Person("Bories")
+    victim3 = Person("Canta")
+    victim4 = Person("Wonta")
+
+    medusa.stare(victim1)
+    medusa.stare(victim2)
+    medusa.stare(victim3)
+    assert len(medusa.statues) == 3
+    assert victim1.is_stoned() == True
+
+    medusa.stare(victim4)
+    assert len(medusa.statues) == 3
+    assert victim1.is_stoned() == False
+    assert victim2.is_stoned() == True
+    assert victim3.is_stoned() == True
+    assert victim4.is_stoned() == True
