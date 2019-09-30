@@ -1,42 +1,30 @@
+import pytest
+from lib.wizard import *
 
+def test_has_name():
+    wizard = Wizard("Eric")
+    assert wizard.name == "Eric"
 
+def test_can_have_different_name():
+    wizard = Wizard("Alex")
+    assert wizard.name == "Alex"
 
+def test_is_bearded_by_default():
+    wizard = Wizard("Ben")
+    assert wizard.is_bearded() == True
 
-#   def test_has_name
-#     wizard = Wizard.new("Eric")
-#     assert_equal "Eric", wizard.name
-#   end
-#
-#   def test_can_have_different_name
-#     skip
-#     wizard = Wizard.new("Alex")
-#     assert_equal "Alex", wizard.name
-#   end
-#
-#   def test_is_bearded_by_default
-#     skip
-#     wizard = Wizard.new("Ben")
-#     assert wizard.bearded?
-#   end
-#
-#   def test_is_not_always_bearded
-#     skip
-#     wizard = Wizard.new("Valerie", bearded: false)
-#     refute wizard.bearded?
-#   end
-#
-#   def test_has_root_powers
-#     skip
-#     wizard = Wizard.new("Sarah", bearded: false)
-#     assert_equal "sudo chown ~/bin", wizard.incantation("chown ~/bin")
-#   end
-#
-#   def test_has_lots_of_root_powers
-#     skip
-#     wizard = Wizard.new("Rob", bearded: false)
-#     assert_equal "sudo rm -rf /home/mirandax", wizard.incantation("rm -rf /home/mirandax")
-#   end
-#
+def test_is_not_always_bearded():
+    wizard = Wizard("Valerie", bearded = False)
+    assert wizard.is_bearded() == False
+
+def test_has_root_powers():
+    wizard = Wizard("Sarah", bearded = False)
+    assert wizard.incantation("chown ~/bin") == "sudo chown ~/bin"
+
+def test_has_lots_of_root_powers():
+    wizard = Wizard("Rob", bearded = False)
+    assert wizard.incantation("rm -rf /home/mirandax") == "sudo rm -rf /home/mirandax"
+
 #   def test_starts_rested
 #     skip
 #     # create wizard
