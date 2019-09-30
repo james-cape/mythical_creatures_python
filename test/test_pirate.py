@@ -44,10 +44,3 @@ def test_a_pirate_gets_100_booty_for_robbing_ships():
     pirate.rob_ship()
     pirate.rob_ship()
     assert pirate.booty == 300
-#
-#   def test_a_pirate_gets_100_booty_for_robbing_ships
-#     skip
-#     # create a pirate
-#     # rob some ships
-#     # check that the pirate got 100 booty for each ship it robbed
-#   end
