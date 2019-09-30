@@ -17,8 +17,13 @@ def test_when_staring_at_a_person_she_gains_a_statue():
     assert len(medusa.statues) == 1
     assert medusa.statues[0].name == "Perseus"
 
+def test_when_staring_at_a_person_that_person_turns_to_stone():
+    medusa = Medusa("Cassiopeia")
+    victim = Person("Perseus")
 
-
+    assert victim.is_stoned() == False
+    medusa.stare(victim)
+    assert victim.is_stoned() == True
 #
 #   def test_when_staring_at_a_person_that_person_turns_to_stone
 #     skip
