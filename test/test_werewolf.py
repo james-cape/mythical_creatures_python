@@ -41,29 +41,28 @@ def test_when_starting_as_a_werewolf_changing_a_second_time_it_becomes_werewolf_
     werewolf.change()
     assert werewolf.is_wolf() == True
 
-#
-#   def test_is_not_hungry_by_default
-#     skip
-#     # your code here
-#   end
-#
-#   def test_becomes_hungry_after_changing_to_a_werewolf
-#     skip
-#     # your code here
-#   end
-#
-#   class Victim
-#     attr_accessor :status
-#
-#     def initialize
-#       @status = :alive
-#     end
-#   end
-#
-#   def test_consumes_a_victim
-#     skip
-#     # your code here
-#   end
+def test_is_not_hungry_by_default():
+    werewolf = Werewolf("David","London")
+    assert werewolf.is_hungry() == False
+
+def test_becomes_hungry_after_changing_to_a_werewolf():
+    werewolf = Werewolf("David","London")
+    assert werewolf.is_hungry() == False
+    werewolf.change()
+    assert werewolf.is_hungry() == True
+
+def test_victim_starts_alive():
+    human = Victim()
+    assert human.status == "Alive"
+
+def test_consumes_a_victim():
+    human = Victim()
+    werewolf = Werewolf("David","London")
+
+    werewolf.consume(human)
+
+
+
 #
 #   def test_cannot_consume_victim_if_in_human_form
 #     skip
