@@ -25,23 +25,18 @@ def test_has_lots_of_root_powers():
     wizard = Wizard("Rob", bearded = False)
     assert wizard.incantation("rm -rf /home/mirandax") == "sudo rm -rf /home/mirandax"
 
-#   def test_starts_rested
-#     skip
-#     # create wizard
-#     # .rested? returns true
-#   end
-#
-#   def test_can_cast_spells
-#     skip
-#     # create wizard
-#     # .cast returns "MAGIC MISSILE!"
-#   end
-#
-#   def test_gets_tired_after_casting_three_spells
-#     skip
-#     # create wizard
-#     # casts spell twice
-#     # check wizard is rested
-#     # casts spell
-#     # check wizard is not rested
-#   end
+def test_starts_rested():
+    wizard = Wizard("Steve")
+    assert wizard.is_rested() == True
+
+def test_can_cast_spells():
+    wizard = Wizard("Ben")
+    assert wizard.cast() == "MAGIC MISSILE!"
+
+def test_gets_tired_after_casting_three_spells():
+    wizard = Wizard("Steve")
+    wizard.cast()
+    wizard.cast()
+    assert wizard.is_rested() == True
+    wizard.cast()
+    assert wizard.is_rested() == False
