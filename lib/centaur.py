@@ -31,6 +31,8 @@ class Centaur:
     def sleep(self):
         if self.standing == True:
             return "NO!"
+        else:
+            self.cranky_level = 0
 
     def lay_down(self):
         self.standing = False

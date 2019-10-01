@@ -80,27 +80,22 @@ def test_it_can_stand_up():
     centaur.stand_up()
     assert centaur.is_standing() == True
 
-#
-#   def test_after_sleeping_it_is_no_longer_cranky
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#
-#     centaur.shoot
-#     centaur.run
-#     centaur.shoot
-#
-#     assert centaur.cranky?
-#
-#     centaur.lay_down
-#     centaur.sleep
-#
-#     refute centaur.cranky?
-#
-#     centaur.stand_up
-#
-#     assert_equal "Twang!!!", centaur.shoot
-#     assert_equal "Clop clop clop clop!!!", centaur.run
-#   end
+def test_after_sleeping_it_is_no_longer_cranky():
+    centaur = Centaur("George", "Palomino")
+    centaur.shoot()
+    centaur.run()
+    centaur.shoot()
+    assert centaur.is_cranky() == True
+
+    centaur.lay_down()
+    centaur.sleep()
+    assert centaur.is_cranky() == False
+
+    centaur.stand_up()
+
+    assert centaur.shoot() == "Twang!!!"
+    assert centaur.run() == "Clop clop clop clop!!!"
+
 #
 #   def test_becomes_rested_after_drinking_a_potion
 #     skip
