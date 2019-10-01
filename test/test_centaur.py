@@ -96,18 +96,22 @@ def test_after_sleeping_it_is_no_longer_cranky():
     assert centaur.shoot() == "Twang!!!"
     assert centaur.run() == "Clop clop clop clop!!!"
 
-#
-#   def test_becomes_rested_after_drinking_a_potion
-#     skip
-#     # your code here
-#   end
-#
-#   def test_can_only_drink_potion_while_standing
-#     skip
-#     # your code here
-#   end
-#
-#   def test_gets_sick_if_drinks_potion_while_rested
-#     skip
-#     # your code here
-#   end
+def test_becomes_rested_after_drinking_a_potion():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.is_cranky() == False
+    centaur.shoot()
+    centaur.run()
+    centaur.run()
+    assert centaur.is_cranky() == True
+    centaur.drink_potion()
+    assert centaur.is_cranky() == False
+
+def test_can_only_drink_potion_while_standing():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    assert centaur.drink_potion() == "Can't, I'm laying"
+
+def test_gets_sick_if_drinks_potion_while_rested():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.is_cranky() == False
+    assert centaur.drink_potion() == "Now I'm sick"

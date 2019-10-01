@@ -42,3 +42,11 @@ class Centaur:
 
     def stand_up(self):
         self.standing = True
+
+    def drink_potion(self):
+        if self.is_standing() == True and self.is_cranky() == False:
+            return "Now I'm sick"
+        elif self.is_standing() == True:
+            self.cranky_level = 0
+        else:
+            return "Can't, I'm laying"
