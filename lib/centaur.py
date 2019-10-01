@@ -7,14 +7,14 @@ class Centaur:
 
     def shoot(self):
         self.cranky_level += 1
-        if self.is_cranky() == False:
+        if self.is_cranky() == False and self.is_laying() == False:
             return "Twang!!!"
         else:
             return "NO!"
 
     def run(self):
         self.cranky_level += 1
-        if self.is_cranky() == False:
+        if self.is_cranky() == False and self.is_laying() == False:
             return "Clop clop clop clop!!!"
         else:
             return "NO!"
@@ -27,3 +27,16 @@ class Centaur:
 
     def is_standing(self):
         return self.standing
+
+    def sleep(self):
+        if self.standing == True:
+            return "NO!"
+
+    def lay_down(self):
+        self.standing = False
+
+    def is_laying(self):
+        return not self.standing
+
+    def stand_up(self):
+        self.standing = True

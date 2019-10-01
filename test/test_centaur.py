@@ -48,49 +48,38 @@ def test_when_cranky_it_will_not_run():
     centaur.shoot()
     assert centaur.run() == "NO!"
 
-#
-#   def test_when_standing_it_will_not_sleep
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     assert_equal "NO!", centaur.sleep
-#   end
-#
-#   def test_after_laying_down_it_is_not_standing
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     centaur.lay_down
-#     refute centaur.standing?
-#     assert centaur.laying?
-#   end
-#
-#   def test_it_can_sleep_when_laying_down
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     centaur.lay_down
-#     refute_equal "NO!", centaur.sleep
-#   end
-#
-#   def test_when_laying_down_it_cannot_shoot_a_bow
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     centaur.lay_down
-#     assert_equal "NO!", centaur.shoot
-#   end
-#
-#   def test_when_laying_down_it_cannot_run
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     centaur.lay_down
-#     assert_equal "NO!", centaur.run
-#   end
-#
-#   def test_it_can_stand_up
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     centaur.lay_down
-#     centaur.stand_up
-#     assert centaur.standing?
-#   end
+def test_when_standing_it_will_not_sleep():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.is_standing() == True
+    assert centaur.sleep() == "NO!"
+
+def test_after_laying_down_it_is_not_standing():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    assert centaur.is_standing() == False
+    assert centaur.is_laying() == True
+
+def test_it_can_sleep_when_laying_down():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    assert not centaur.sleep() == "NO!"
+
+def test_when_laying_down_it_cannot_shoot_a_bow():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    assert centaur.shoot() == "NO!"
+
+def test_when_laying_down_it_cannot_run():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    assert centaur.run() == "NO!"
+
+def test_it_can_stand_up():
+    centaur = Centaur("George", "Palomino")
+    centaur.lay_down()
+    centaur.stand_up()
+    assert centaur.is_standing() == True
+
 #
 #   def test_after_sleeping_it_is_no_longer_cranky
 #     skip
