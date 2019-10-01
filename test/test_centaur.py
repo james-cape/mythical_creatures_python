@@ -9,34 +9,18 @@ def test_it_has_a_horse_breed():
     centaur = Centaur("George", "Palomino")
     assert centaur.breed == "Palomino"
 
-#   def test_it_has_a_name
-#     centaur = Centaur.new("George","Palomino")
-#     assert_equal "George", centaur.name
-#   end
-#
-#   def test_it_has_a_horse_breed
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     assert_equal "Palomino", centaur.breed
-#   end
-#
-#   def test_it_has_excellent_bow_skills
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     assert_equal "Twang!!!", centaur.shoot
-#   end
-#
-#   def test_it_makes_a_horse_sound_when_it_runs
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     assert_equal "Clop clop clop clop!!!", centaur.run
-#   end
-#
-#   def test_when_first_created_it_is_not_cranky
-#     skip
-#     centaur = Centaur.new("George","Palomino")
-#     refute centaur.cranky?
-#   end
+def test_it_has_excellent_bow_skills():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.shoot() == "Twang!!!"
+
+def test_it_makes_a_horse_sound_when_it_runs():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.run() == "Clop clop clop clop!!!"
+
+def test_when_first_created_it_is_not_cranky():
+    centaur = Centaur("George", "Palomino")
+    assert centaur.is_cranky() == False
+
 #
 #   def test_when_first_created_it_is_standing_up
 #     skip
