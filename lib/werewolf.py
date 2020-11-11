@@ -8,7 +8,6 @@ class Werewolf:
     def is_human(self):
         return self.human_state
 
-
     def change(self):
         if self.human_state == True:
             self.hungry = True
@@ -28,7 +27,6 @@ class Werewolf:
         else:
             consumed.status = "Dead"
             self.hungry = False
-            return None
 
 class Victim:
     def __init__(self):

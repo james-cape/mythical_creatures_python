@@ -6,10 +6,7 @@ class Pirate:
         self.booty = booty
 
     def is_cursed(self):
-        if self.curse_level < 3:
-            return False
-        else:
-            return True
+        return self.curse_level >= 3
 
     def commit_heinous_act(self):
         self.curse_level += 1

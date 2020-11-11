@@ -20,10 +20,7 @@ class Centaur:
             return "NO!"
 
     def is_cranky(self):
-        if self.cranky_level < 3:
-            return False
-        else:
-            return True
+        return self.cranky_level >= 3
 
     def is_standing(self):
         return self.standing

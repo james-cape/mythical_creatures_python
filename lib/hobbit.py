@@ -9,22 +9,13 @@ class Hobbit:
         self.age += 1
 
     def is_adult(self):
-        if self.age <= 32:
-            return False
-        else:
-            return True
+        return self.age > 32
 
     def is_old(self):
-        if self.age >= 101:
-            return True
-        else:
-            return False
+        return self.age >= 101
 
     def has_ring(self):
-        if self.name == "Frodo":
-            return True
-        else:
-            return False
+        return self.name == "Frodo"
 
     def is_short(self):
         return self.height
