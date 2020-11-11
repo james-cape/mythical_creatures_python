@@ -24,7 +24,4 @@ class Human:
         self.knocked_out = False
 
     def notices_ogre(self):
-        if self.encounter_counter % 3 == 0:
-            return True
-        else:
-            return False
+        return self.encounter_counter % 3 == 0

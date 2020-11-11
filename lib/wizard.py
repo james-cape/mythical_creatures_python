@@ -11,10 +11,7 @@ class Wizard:
         return f"sudo {phrase}"
 
     def is_rested(self):
-        if self.rest_level < 3:
-            return True
-        else:
-            return False
+        return self.rest_level < 3
 
     def cast(self):
         self.rest_level += 1
