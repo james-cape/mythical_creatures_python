@@ -27,5 +27,4 @@ def test_it_is_thirsty_by_default():
 def test_it_is_not_thirsty_after_drinking():
     vampire = Vampire("Elizabeth Bathory")
     vampire.drink()
-    assert vampire.is_thirsty() == False
     assert not vampire.is_thirsty()

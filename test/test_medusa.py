@@ -21,9 +21,9 @@ def test_when_staring_at_a_person_that_person_turns_to_stone():
     medusa = Medusa("Cassiopeia")
     victim = Person("Perseus")
 
-    assert victim.is_stoned() == False
+    assert not victim.is_stoned()
     medusa.stare(victim)
-    assert victim.is_stoned() == True
+    assert victim.is_stoned()
 
 def test_can_only_have_three_victims():
     medusa = Medusa("Cassiopeia")
@@ -51,11 +51,11 @@ def test_if_a_fourth_victim_is_stoned_first_is_unstoned():
     medusa.stare(victim2)
     medusa.stare(victim3)
     assert len(medusa.statues) == 3
-    assert victim1.is_stoned() == True
+    assert victim1.is_stoned()
 
     medusa.stare(victim4)
     assert len(medusa.statues) == 3
-    assert victim1.is_stoned() == False
-    assert victim2.is_stoned() == True
-    assert victim3.is_stoned() == True
-    assert victim4.is_stoned() == True
+    assert not victim1.is_stoned()
+    assert victim2.is_stoned()
+    assert victim3.is_stoned()
+    assert victim4.is_stoned()

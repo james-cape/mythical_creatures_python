@@ -26,16 +26,16 @@ def test_humans_only_notices_ogre_every_third_encounter():
     human = Human()
     ogre.encounter(human)
     ogre.encounter(human)
-    assert human.notices_ogre() == False
+    assert not human.notices_ogre()
     ogre.encounter(human)
-    assert human.notices_ogre() == True
+    assert human.notices_ogre()
 
 def test_human_notices_ogre_the_sixth_time():
     ogre = Ogre('Brak')
     human = Human()
     for i in range(6):
         ogre.encounter(human)
-    assert human.notices_ogre() == True
+    assert human.notices_ogre()
 
 def test_it_can_swing_a_club():
     ogre = Ogre('Brak')
@@ -49,12 +49,12 @@ def test_it_swings_the_club_when_the_human_notices_it():
     human = Human()
     ogre.encounter(human)
     assert ogre.swings == 0
-    assert human.notices_ogre() == False
+    assert not human.notices_ogre()
     ogre.encounter(human)
     ogre.encounter(human)
 
     assert ogre.swings == 1
-    assert human.notices_ogre() == True
+    assert human.notices_ogre()
 
 def test_it_hits_the_human_every_second_time_it_swings():
     ogre = Ogre('Brak')
@@ -63,7 +63,7 @@ def test_it_hits_the_human_every_second_time_it_swings():
         ogre.encounter(human)
     assert human.encounter_counter == 6
     assert ogre.swings == 2
-    assert human.knocked_out == True
+    assert human.knocked_out
 
 def test_human_wakes_up_when_ogre_apologizes():
     ogre = Ogre('Brak')
@@ -72,7 +72,7 @@ def test_human_wakes_up_when_ogre_apologizes():
         ogre.encounter(human)
     assert human.encounter_counter == 6
     assert ogre.swings == 2
-    assert human.knocked_out == True
+    assert human.knocked_out
 
     ogre.apologize(human)
-    assert human.knocked_out == False
+    assert not human.knocked_out

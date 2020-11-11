@@ -11,23 +11,23 @@ def test_can_have_different_name():
 
 def test_is_bearded_by_default():
     wizard = Wizard("Ben")
-    assert wizard.is_bearded() == True
+    assert wizard.is_bearded()
 
 def test_is_not_always_bearded():
-    wizard = Wizard("Valerie", bearded = False)
-    assert wizard.is_bearded() == False
+    wizard = Wizard("Valerie", bearded=False)
+    assert not wizard.is_bearded()
 
 def test_has_root_powers():
-    wizard = Wizard("Sarah", bearded = False)
+    wizard = Wizard("Sarah", bearded=False)
     assert wizard.incantation("chown ~/bin") == "sudo chown ~/bin"
 
 def test_has_lots_of_root_powers():
-    wizard = Wizard("Rob", bearded = False)
+    wizard = Wizard("Rob", bearded=False)
     assert wizard.incantation("rm -rf /home/mirandax") == "sudo rm -rf /home/mirandax"
 
 def test_starts_rested():
     wizard = Wizard("Steve")
-    assert wizard.is_rested() == True
+    assert wizard.is_rested()
 
 def test_can_cast_spells():
     wizard = Wizard("Ben")
@@ -37,6 +37,6 @@ def test_gets_tired_after_casting_three_spells():
     wizard = Wizard("Steve")
     wizard.cast()
     wizard.cast()
-    assert wizard.is_rested() == True
+    assert wizard.is_rested()
     wizard.cast()
-    assert wizard.is_rested() == False
+    assert not wizard.is_rested()
