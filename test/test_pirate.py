@@ -19,17 +19,17 @@ def test_its_not_always_a_scallywag():
 
 def test_isnt_cursed_by_default():
     pirate = Pirate("Jack")
-    assert pirate.is_cursed() == False
+    assert not pirate.is_cursed()
 
 def test_becomes_cursed_after_enough_heinous_acts():
     pirate = Pirate("Jack")
-    assert pirate.is_cursed() == False
+    assert not pirate.is_cursed()
     pirate.commit_heinous_act()
-    assert pirate.is_cursed() == False
+    assert not pirate.is_cursed()
     pirate.commit_heinous_act()
-    assert pirate.is_cursed() == False
+    assert not pirate.is_cursed()
     pirate.commit_heinous_act()
-    assert pirate.is_cursed() == True
+    assert pirate.is_cursed()
 
 
 def test_a_pirate_has_booty():
